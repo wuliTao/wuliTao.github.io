@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        redis · fi3ework&#39;s Studio
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">redis</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>fi3ework's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            redis
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = nosql 缓存>nosql 缓存</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/11/25</span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><ul>
+<li>高性能</li>
+<li>可扩展</li>
+<li>内存存储</li>
+<li>key/value数据存储方式</li>
+</ul>
+<h2 id="1-nosql概念"><a href="#1-nosql概念" class="headerlink" title="1 nosql概念"></a>1 nosql概念</h2><p>NoSQL（not only sql）泛指非关系型的数据库。</p>
+<p>由于传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的网站，例如搜索引擎，微博，电商等等，暴露了很多难以克服的问题，例如，查询速度慢，扩展性差，不支持高并发等等。</p>
+<p>NoSQL数据库是为了解决高并发、高可扩展、高可用、大数据存储问题而产生的解决方案。</p>
+<h3 id="NoSQL特点"><a href="#NoSQL特点" class="headerlink" title="NoSQL特点"></a>NoSQL特点</h3><ul>
+<li>数据保存在内存</li>
+<li>弹性扩展</li>
+<li>集群分片</li>
+</ul>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
+<li>数据模型比较简单</li>
+<li>需要灵活性更强的IT系统</li>
+<li>对数据库性能要求较高</li>
+<li>不需要高度的数据一致性</li>
+</ul>
+<h2 id="2-redis简介"><a href="#2-redis简介" class="headerlink" title="2 redis简介"></a>2 redis简介</h2><ul>
+<li>高性能</li>
+<li>可扩展</li>
+<li>内存存储</li>
+<li>key/value数据存储方式</li>
+</ul>
+<h2 id="3-redis入门"><a href="#3-redis入门" class="headerlink" title="3 redis入门"></a>3 redis入门</h2><ul>
+<li>string（字符串）</li>
+</ul>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/17268187.jpg" alt=""></p>
+<ul>
+<li>hash（哈希）相对于HashMap</li>
+</ul>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/30270828.jpg" alt=""></p>
+<ul>
+<li>list（列表）相当于LinkedList</li>
+</ul>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/76282308.jpg" alt=""></p>
+<ul>
+<li>set（集合）相当于HashSet</li>
+</ul>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/10334726.jpg" alt=""></p>
+<ul>
+<li>zset( 有序集合 ) 相当于TreeSet</li>
+</ul>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/15006637.jpg" alt=""></p>
+<ul>
+<li>key操作</li>
+</ul>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/77224687.jpg" alt=""></p>
+<h2 id="4-持久化简介"><a href="#4-持久化简介" class="headerlink" title="4 持久化简介"></a>4 持久化简介</h2><p>为应对拉闸限电，系统当机等事故，redis使用持久化技术来避免灾难性后果。</p>
+<p>redis有两种持久化方法：RDB、AOF</p>
+<h3 id="rdb方式"><a href="#rdb方式" class="headerlink" title="rdb方式"></a>rdb方式</h3><p>rdb:在指定的时间间隔对数据进行快照存储</p>
+<ul>
+<li>数据保存在硬盘上的一个dump.rdb文件中，如果删除将失去备份</li>
+<li>rdb方式的配置参数在redis.conf中，具体请查看官方文档</li>
+</ul>
+<p>优点：速度快，并且异步执行，不影响正常功能</p>
+<p>缺点：间隔期间，若服务器异常，将有数据丢失</p>
+<h3 id="aof方式"><a href="#aof方式" class="headerlink" title="aof方式"></a>aof方式</h3><p>aof:记录每次写操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据</p>
+<p>优点：不会有数据丢失</p>
+<p>缺点：若备份指令很多，恢复数据很慢</p>
+<h2 id="5-事务"><a href="#5-事务" class="headerlink" title="5 事务"></a>5 事务</h2><h3 id="redis事务的3个指令"><a href="#redis事务的3个指令" class="headerlink" title="redis事务的3个指令"></a>redis事务的3个指令</h3><ul>
+<li>multi开启事务</li>
+<li>exec提交事务</li>
+<li>watch监视某个键是否被修改，若在事务提交前有被其他客户端所改动，事务将失败</li>
+</ul>
+<h3 id="java操作redis事务"><a href="#java操作redis事务" class="headerlink" title="java操作redis事务"></a>java操作redis事务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Jedis jedis=<span class="keyword">new</span> Jedis(<span class="string">"127.0.0.1"</span>, <span class="number">6379</span>);</span><br><span class="line"><span class="comment">//开启事务</span></span><br><span class="line">Transaction tx = jedis.multi();</span><br><span class="line"><span class="comment">//执行语句</span></span><br><span class="line">tx.set(<span class="string">"goodname"</span>, <span class="string">"裤子"</span>);</span><br><span class="line">tx.set(<span class="string">"goodprice"</span>, <span class="string">"100"</span>);</span><br><span class="line">tx.get(<span class="string">"goodname"</span>);</span><br><span class="line"><span class="comment">//提交事务，并且返回结果</span></span><br><span class="line">List&lt;Object&gt; exec = tx.exec();</span><br><span class="line">System.out.println(exec);</span><br><span class="line">jedis.close();</span><br></pre></td></tr></table></figure>
+<h2 id="6-订阅与发布"><a href="#6-订阅与发布" class="headerlink" title="6 订阅与发布"></a>6 订阅与发布</h2><p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/51773017.jpg" alt=""></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1、微博的关注与取消关注</p>
+<p>2、向主服务器获取任务，然后执行任务</p>
+<p>3、web聊天程序，例如webQQ</p>
+<h2 id="7-redis主从"><a href="#7-redis主从" class="headerlink" title="7 redis主从"></a>7 redis主从</h2><p>一台主服务器，配置一台或者多台从服务器</p>
+<p>作用：数据备份、故障转移、读写分离</p>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/64548490.jpg" alt=""></p>
+<h2 id="8-redis集群"><a href="#8-redis集群" class="headerlink" title="8 redis集群"></a>8 redis集群</h2><p>集群：多台服务器一起工作</p>
+<p>作用：提高存储容量，分布式计算，主从同步，故障转移</p>
+<p><img src="http://oyirtj6m7.bkt.clouddn.com/17-11-17/75516902.jpg" alt=""></p>
+<h2 id="9-整合redis"><a href="#9-整合redis" class="headerlink" title="9 整合redis"></a>9 整合redis</h2><h3 id="整合的原则"><a href="#整合的原则" class="headerlink" title="整合的原则"></a>整合的原则</h3><ul>
+<li>redis服务在整个架构中充当缓存</li>
+<li>先从缓存获取数据，获取失败再从关系型数据库获取</li>
+<li>更新关系型数据库时，缓存也要更新或者删除</li>
+<li>redis不能影响正常的SSM工作</li>
+</ul>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1、编写redis接口</p>
+<p>2、编写单机版RedisPool和集群版RedisCluster</p>
+<p>具体请看RedisPool和RedisCluster工具类</p>
+<p>3、在service层调用对应的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;AppInfo&gt; <span class="title">selectAppInfoList</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//先查询缓存</span></span><br><span class="line">	String string = redisPool.hget(Const.APP_INFO_LIST, <span class="string">"appinfolist:"</span>+userId);</span><br><span class="line">	<span class="keyword">if</span>(!StringUtils.isEmpty(string))&#123;</span><br><span class="line">		System.out.println(<span class="string">"-----------redis 获取缓存数据----------"</span>);</span><br><span class="line">		<span class="keyword">return</span> JsonUtils.readValue(string, <span class="keyword">new</span> TypeReference&lt;List&lt;AppInfo&gt;&gt;() &#123;&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//查询mysql数据库</span></span><br><span class="line">	AppInfoExample example=<span class="keyword">new</span> AppInfoExample();</span><br><span class="line">	example.createCriteria().andUserIdEqualTo(userId);</span><br><span class="line">	List&lt;AppInfo&gt; list = appInfoMapper.selectByExample(example);	</span><br><span class="line">	<span class="comment">//将数据放入缓存</span></span><br><span class="line">	redisPool.hset(Const.APP_INFO_LIST, <span class="string">"appinfolist:"</span>+userId,JsonUtils.toJSon(list));</span><br><span class="line">	System.out.println(<span class="string">"-----------redis 存储缓存数据----------"</span>);</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateAppInfo</span><span class="params">(AppInfo appInfo)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = appInfoMapper.updateByPrimaryKeySelective(appInfo);</span><br><span class="line">	<span class="keyword">if</span>(i!=<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="comment">//删除缓存中对应的数据</span></span><br><span class="line">		redisPool.hdel(Const.APP_INFO_LIST, <span class="string">"appinfolist:"</span>+appInfo.getUserId());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4、在配置文件中，注入JedisPool或者JedisCluster</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 单机版和集群版只能二选一 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.JedisPool"</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"127.0.0.1"</span>/&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"6379"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.JedisCluster"</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"nodes"</span>&gt;</span></span><br><span class="line">   		<span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">   			<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort.HostAndPort"</span>&gt;</span></span><br><span class="line">   				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"172.16.32.49"</span>/&gt;</span></span><br><span class="line">   				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7001"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   			<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">   			<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort.HostAndPort"</span>&gt;</span></span><br><span class="line">   				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"172.16.32.49"</span>/&gt;</span></span><br><span class="line">   				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7002"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   			<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--这里配置6台服务器--&gt;</span></span><br><span class="line">   		<span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、对象的存储，使用Jackson工具类将对象转成json，然后使用hash保存</p>
+<p>2、使用Jackson工具类将json转成对象</p>
+<p>3、具体使用情况请看JsonUtils工具类</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/11/25/shiro/" title=  >
+                    <span>Next Post</span>
+                    <span>[Untitled Post]</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/11/25/hello-world/" title= Hello World >
+                    <span>Previous Post</span>
+                    <span>Hello World</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#redis"><span class="toc-number">1.</span> <span class="toc-text">redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-nosql概念"><span class="toc-number">2.</span> <span class="toc-text">1 nosql概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NoSQL特点"><span class="toc-number">2.1.</span> <span class="toc-text">NoSQL特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用场景"><span class="toc-number">2.2.</span> <span class="toc-text">使用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-redis简介"><span class="toc-number">3.</span> <span class="toc-text">2 redis简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-redis入门"><span class="toc-number">4.</span> <span class="toc-text">3 redis入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-持久化简介"><span class="toc-number">5.</span> <span class="toc-text">4 持久化简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rdb方式"><span class="toc-number">5.1.</span> <span class="toc-text">rdb方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aof方式"><span class="toc-number">5.2.</span> <span class="toc-text">aof方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-事务"><span class="toc-number">6.</span> <span class="toc-text">5 事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redis事务的3个指令"><span class="toc-number">6.1.</span> <span class="toc-text">redis事务的3个指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java操作redis事务"><span class="toc-number">6.2.</span> <span class="toc-text">java操作redis事务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-订阅与发布"><span class="toc-number">7.</span> <span class="toc-text">6 订阅与发布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#应用场景"><span class="toc-number">7.1.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-redis主从"><span class="toc-number">8.</span> <span class="toc-text">7 redis主从</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-redis集群"><span class="toc-number">9.</span> <span class="toc-text">8 redis集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-整合redis"><span class="toc-number">10.</span> <span class="toc-text">9 整合redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#整合的原则"><span class="toc-number">10.1.</span> <span class="toc-text">整合的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤"><span class="toc-number">10.2.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意"><span class="toc-number">10.3.</span> <span class="toc-text">注意</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 4 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2017/11/25/shiro/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2017/11/25/redis/" >redis</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2017/11/25/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2017/11/21/git/" >git的使用</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">git</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">nosql 缓存</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
